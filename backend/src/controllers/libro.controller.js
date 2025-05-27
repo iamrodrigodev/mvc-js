@@ -56,6 +56,15 @@ const createLibro = (req, res) => {
             });
         }
 
+        // Verificar si ya existe un libro con el mismo título
+        if (Libro.existsByTitulo(titulo)) {
+            return res.status(400).json({
+                success: false,
+                message: 'Ya existe un libro con este título',
+                field: 'titulo'
+            });
+        }
+
         // Validar que la fecha no sea futura
         const fechaPublicacion = new Date(fecha_publicacion);
         const hoy = new Date();

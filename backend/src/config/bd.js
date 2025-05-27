@@ -4,7 +4,7 @@ const db = new Database(':memory:');
 db.prepare(`
     CREATE TABLE IF NOT EXISTS libros (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        titulo VARCHAR(255) NOT NULL UNIQUE,
+        titulo VARCHAR(255) NOT NULL,
         autor VARCHAR(255) NOT NULL,
         fecha_publicacion DATE NOT NULL,
         genero VARCHAR(255) NOT NULL
