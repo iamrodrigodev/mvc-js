@@ -51,9 +51,7 @@ cd mvc-js
 
 ```bash
 # Desde la carpeta backend
-npm run dev
-# o
-yarn dev
+nodemon server.js
 ```
 
 El servidor backend estará disponible en: http://localhost:4000
@@ -63,8 +61,6 @@ El servidor backend estará disponible en: http://localhost:4000
 ```bash
 # Desde la carpeta frontend
 npm start
-# o
-yarn start
 ```
 
 La aplicación frontend se abrirá automáticamente en tu navegador predeterminado en: http://localhost:3000
