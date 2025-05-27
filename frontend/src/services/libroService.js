@@ -1,8 +1,11 @@
 import axios from 'axios';
 
+// URL base de la API
 const API_URL = 'http://localhost:4000/api';
 
 export const libroService = {
+
+    // Obtiene todos los libros
     getAll: async () => {
         try {
             const response = await axios.get(`${API_URL}/libros`);
@@ -13,6 +16,7 @@ export const libroService = {
         }
     },
     
+    // Obtiene un libro por su ID
     getById: async (id) => {
         try {
             const response = await axios.get(`${API_URL}/libros/${id}`);
@@ -23,6 +27,7 @@ export const libroService = {
         }
     },
     
+    // Crea un nuevo libro
     create: async (libro) => {
         try {
             const response = await axios.post(`${API_URL}/libros`, libro);
@@ -33,6 +38,7 @@ export const libroService = {
         }
     },
     
+    // Actualiza un libro existente
     update: async (id, libro) => {
         try {
             const response = await axios.put(`${API_URL}/libros/${id}`, libro);
@@ -43,6 +49,7 @@ export const libroService = {
         }
     },
     
+    // Elimina un libro existente
     delete: async (id) => {
         try {
             const response = await axios.delete(`${API_URL}/libros/${id}`);
@@ -54,4 +61,5 @@ export const libroService = {
     }
 };
 
+// Exportar el servicio
 export default libroService;
