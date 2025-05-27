@@ -1,0 +1,232 @@
+/* Estilos generales */
+.libros-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.libros-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.libros-header h1 {
+  margin: 0;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+/* Tabla de libros */
+.table-container {
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.libros-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.libros-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.libros-table th,
+.libros-table td {
+  padding: 1rem;
+  text-align: center;  /* Centrar texto en todas las celdas */
+  vertical-align: middle;  /* Alinear verticalmente al centro */
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+}
+
+/* Eliminar borde derecho de la última columna */
+.libros-table th:last-child,
+.libros-table td:last-child {
+  border-right: none;
+}
+
+/* Estilo para la cabecera */
+.libros-table th {
+  background-color: #0d6efd;  /* Color azul del navbar */
+  color: white;
+  font-weight: 500;
+  border-top: 1px solid #0d6efd;
+  border-bottom: 2px solid #0c63e4;
+  text-transform: capitalize;  /* Primera letra mayúscula, resto minúsculas */
+  font-size: 0.9rem;
+  letter-spacing: normal;
+  padding: 12px 15px;
+  text-align: center;  /* Centrar texto en cabeceras */
+}
+
+/* Asegurar que el texto sea blanco */
+.libros-table th,
+.libros-table th a {
+  color: white !important;
+}
+
+/* Efecto hover en las celdas del encabezado */
+.libros-table th:hover {
+  background-color: #0b5ed7;
+  cursor: pointer;
+}
+
+.libros-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Botones de acción */
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0.5rem 0;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  min-width: 80px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin: 0 2px;
+}
+
+/* Botones de acción en la tabla */
+.actions .btn {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  min-width: 70px;
+}
+
+/* Botón Ver - Azul como el navbar */
+.btn-primary {
+  background-color: #0d6efd;  /* Color del navbar */
+  color: white;
+  border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+/* Botón Editar - Amarillo */
+.btn-warning {
+  background-color: #ffc107;
+  color: #000;
+  border-color: #ffc107;
+}
+
+.btn-warning:hover {
+  background-color: #ffca2c;
+  border-color: #ffc720;
+}
+
+/* Botón Eliminar - Rojo */
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #bb2d3b;
+  border-color: #b02a37;
+}
+
+/* Botón Agregar - Verde */
+.btn-success {
+  background-color: #198754;
+  color: white;
+  border-color: #198754;
+}
+
+.btn-success:hover {
+  background-color: #157347;
+  border-color: #146c43;
+}
+
+.btn-delete {
+  color: #d32f2f;
+}
+
+.btn-icon:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+/* Estado de carga */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #1976d2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mensaje sin datos */
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .libros-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .libros-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .libros-table th,
+  .libros-table td {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .actions {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

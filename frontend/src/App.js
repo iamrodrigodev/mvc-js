@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Layout/Navbar';
-import ListaLibros from './pages/Libros/ListaLibros';
-import './App.css';
+import ListaLibros from './pages/ListaLibros';
+import './styles/App.css';
 
 function App() {
   return (
