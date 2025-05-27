@@ -1,8 +1,7 @@
 const Libro = require('../models/Libro');
-const db = require('../config/bd');
 
 // Obtener todos los libros
-const getAllLibros = (req, res) => {
+const getAllLibros = (_req, res) => {
     try {
         const libros = Libro.getAll();
         res.status(200).json({
