@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { libroService } from '../services/libroService';
 import ModalEliminar from '../components/ModalEliminar';
 import '../styles/pages/ListaLibros.css';
+import '../styles/pages/EditarLibro.css'; // Importamos los estilos del toast
 
 const ListaLibros = () => {
   const [libros, setLibros] = useState([]);
@@ -10,7 +11,42 @@ const ListaLibros = () => {
   const [showModal, setShowModal] = useState(false);
   const [libroAEliminar, setLibroAEliminar] = useState(null);
   const navigate = useNavigate();
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
 
+  // Efecto para mostrar el toast de éxito si viene de una actualización
+  useEffect(() => {
+    const checkForToast = () => {
+      const successMessage = sessionStorage.getItem('showSuccessToast');
+      
+      if (successMessage) {
+        setToastMessage(successMessage);
+        setShowToast(true);
+        
+        // Limpiar el mensaje después de mostrarlo
+        sessionStorage.removeItem('showSuccessToast');
+        
+        // Ocultar el toast después de 3 segundos
+        const timer = setTimeout(() => {
+          setShowToast(false);
+          setToastMessage('');
+        }, 3000);
+        
+        return () => clearTimeout(timer);
+      }
+    };
+    
+    // Pequeño retraso para asegurar que el componente esté completamente montado
+    const timer = setTimeout(checkForToast, 100);
+    
+    return () => {
+      clearTimeout(timer);
+      setShowToast(false);
+      setToastMessage('');
+    };
+  }, []);
+  
+  // Efecto para cargar los libros
   useEffect(() => {
     const cargarLibros = async () => {
       try {
@@ -37,11 +73,11 @@ const ListaLibros = () => {
   }, []);
 
   const handleVer = (id) => {
-    navigate(`/libros/ver/${id}`);
+    navigate(`/libros/${id}/detalles`);
   };
 
   const handleEditar = (id) => {
-    navigate(`/libros/editar/${id}`);
+    navigate(`/libros/${id}/editar`);
   };
 
   const handleEliminarClick = (libro) => {
@@ -77,6 +113,14 @@ const ListaLibros = () => {
 
   return (
     <div className="libros-container">
+      {/* Toast de éxito */}
+      {showToast && (
+        <div className="toast-container">
+          <div className="toast show toast-success">
+            <div className="toast-message">{toastMessage}</div>
+          </div>
+        </div>
+      )}
       <div className="libros-header">
         <h1>Lista de Libros</h1>
         <button 

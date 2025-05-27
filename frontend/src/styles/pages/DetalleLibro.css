@@ -1,0 +1,248 @@
+/* Estilos para la página de detalle del libro */
+.detalle-libro {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #333;
+}
+
+/* Estilos para la tarjeta de detalles */
+.detalle-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detalle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para la cabecera */
+.detalle-header {
+  background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.detalle-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+}
+
+.detalle-header h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 2rem;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Estilos para el cuerpo */
+.detalle-body {
+  padding: 2rem;
+  background-color: #fff;
+}
+
+/* Estilos para la imagen */
+.detalle-body {
+  padding: 2rem;
+  background-color: #fff;
+}
+
+/* Estilos para la sección de detalles */
+.detalle-seccion {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #0d6efd;
+  margin-top: 2.5rem; /* Añadido margen superior */
+}
+
+.detalle-seccion h5 {
+  color: #0d6efd;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detalle-seccion h5 svg {
+  font-size: 1.25rem;
+}
+
+.detalle-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.detalle-item {
+  padding: 0.75rem;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.detalle-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.detalle-item strong {
+  display: block;
+  color: #6c757d;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detalle-item p {
+  margin: 0;
+  font-size: 1rem;
+  color: #212529;
+  font-weight: 500;
+}
+
+/* Estilos para el pie de página */
+.detalle-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .detalle-header h2 {
+    font-size: 1.75rem;
+  }
+  
+  .detalle-body {
+    padding: 1.5rem;
+  }
+  
+  .detalle-seccion {
+    padding: 1.25rem;
+  }
+  
+  .detalle-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .detalle-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .detalle-footer .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.libro-card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.libro-card .card-header {
+  background-color: #0d6efd;
+  color: white;
+  padding: 1.5rem;
+}
+
+.libro-card .card-body {
+  padding: 2rem;
+}
+
+.libro-card .card-footer {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.libro-imagen {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.libro-detalle {
+  padding-left: 2rem;
+}
+
+.libro-detalle h4 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.libro-detalle .text-muted {
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.libro-detalle h5 {
+  color: #495057;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.libro-detalle p {
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+.libro-metadata {
+  margin-top: 2rem;
+}
+
+.libro-metadata p {
+  margin-bottom: 0.5rem;
+}
+
+.btn-volver {
+  margin-right: 1rem;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .libro-card .card-body {
+    padding: 1.5rem;
+  }
+  
+  .libro-detalle {
+    padding-left: 0;
+    margin-top: 1.5rem;
+  }
+  
+  .libro-imagen {
+    max-width: 200px;
+    margin: 0 auto 1.5rem;
+    display: block;
+  }
+}

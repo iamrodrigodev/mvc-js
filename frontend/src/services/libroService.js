@@ -34,7 +34,14 @@ export const libroService = {
             return response.data;
         } catch (error) {
             console.error('Error al crear el libro:', error);
-            throw error;
+            // Si el servidor devuelve un mensaje de error, lo extraemos
+            if (error.response && error.response.data && error.response.data.message) {
+                throw new Error(error.response.data.message);
+            } else if (error.message) {
+                throw new Error(error.message);
+            } else {
+                throw new Error('Error al crear el libro');
+            }
         }
     },
     
@@ -45,7 +52,12 @@ export const libroService = {
             return response.data;
         } catch (error) {
             console.error('Error al actualizar el libro:', error);
-            throw error;
+            // Devolvemos el error completo para manejarlo en el componente
+            return Promise.reject({
+                response: {
+                    data: error.response?.data || { message: error.message || 'Error al actualizar el libro' }
+                }
+            });
         }
     },
     
