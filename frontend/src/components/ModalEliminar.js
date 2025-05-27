@@ -13,7 +13,6 @@ const ModalEliminar = ({ mostrar, onCerrar, onConfirmar, libro }) => {
         </div>
         <div className="modal-body">
           <p>¿Estás seguro de que deseas eliminar el libro "{libro?.titulo}"?</p>
-          <p>Esta acción no se puede deshacer.</p>
         </div>
         <div className="modal-footer">
           <button 
