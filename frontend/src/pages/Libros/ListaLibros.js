@@ -11,10 +11,20 @@ const ListaLibros = () => {
   useEffect(() => {
     const cargarLibros = async () => {
       try {
-        const data = await libroService.getAll();
-        setLibros(data);
+        const response = await libroService.getAll();
+        // Convertir el diccionario a un array para mostrarlo en la tabla
+        if (response && response.data) {
+          const librosArray = Object.keys(response.data).map(key => ({
+            id: key,
+            ...response.data[key]
+          }));
+          setLibros(librosArray);
+        } else {
+          setLibros([]);
+        }
       } catch (error) {
         console.error('Error al cargar los libros:', error);
+        setLibros([]);
       } finally {
         setLoading(false);
       }
