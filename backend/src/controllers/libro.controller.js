@@ -68,7 +68,7 @@ const createLibro = (req, res) => {
                 message: 'La fecha de publicación no puede ser futura'
             });
         }
-
+    
         const nuevoLibro = Libro.create({
             titulo,
             autor,
@@ -201,6 +201,7 @@ const deleteLibro = (req, res) => {
     }
 };
 
+// Exportar las funciones
 module.exports = {
     getAllLibros,
     getLibroById,
